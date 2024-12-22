@@ -66,7 +66,7 @@ masquerade:
 </details> 
 
 
-<details><summary>sing-box macos 客户端配置</summary>
+<details><summary>sing-box macos hysteria 2客户端配置</summary>
 
 
 服务器端手工安装hysteria2
@@ -171,7 +171,7 @@ masquerade:
 </details> 
 
 
-<details><summary>Sing-box server 配置</summary>
+<details><summary>Sing-box server hysteria2 配置</summary>
 
 ```
 
@@ -254,9 +254,9 @@ masquerade:
 
 
 
-<details><summary>Sing-box macos 客户端  配置</summary>
+<details><summary>Sing-box macos 客户端 hysteria2 配置</summary>
 
-服务器端：sing-box 运行 hysteria2
+
 
 ```
 {
