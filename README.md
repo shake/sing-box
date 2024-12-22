@@ -5,7 +5,7 @@ Sing-box和传统的软件client端，server端不太一样，一个安装包，
 * Sing-box，作为一个客户端，如果希望使用和支持hysteria2协议，并不要求服务器端必须是Sing-box，服务器端可以是独立安装的hysteria2，也可以是Sing-box上启用hysteria2协议。
 * Sing-box 支持多种的协议，仅仅用hysteria2举例。reality协议，也是类似。
 
-### 自己签发证书
+## 自己签发证书
 
 
 ```
