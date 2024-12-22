@@ -1,3 +1,73 @@
+# 服务器端推荐配置
+
+使用自己签发证书，
+
+```
+openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout /etc/hysteria/private.key -out /etc/hysteria/cert.crt -subj "/CN=bing.com" -days 36500 && sudo chown hysteria /etc/hysteria/private.key && sudo chown hysteria /etc/hysteria/cert.crt
+```
+证书存放位置：/etc/hysteria/
+
+
+<details><summary>服务器端hysteria 配置</summary>
+
+修改 /etc/hysteria/config.yaml 配置文件
+
+```
+# 可以任意端口
+listen: :8843
+
+tls:
+  cert: /etc/hysteria/cert.crt
+  key: /etc/hysteria/private.key
+
+quic:
+  initStreamReceiveWindow: 8388608
+  maxStreamReceiveWindow: 8388608
+  initConnReceiveWindow: 20971520
+  maxConnReceiveWindow: 20971520
+  maxIdleTimeout: 30s
+  maxIncomingStreams: 1024
+  disablePathMTUDiscovery: false
+
+bandwidth:
+  up: 0 gbps
+  down: 0 gbps
+
+ignoreClientBandwidth: false
+disableUDP: false
+udpIdleTimeout: 60s
+
+# 密码记得修改
+auth:
+  type: password
+  password: chenshake
+
+resolver:
+  type: https
+  https:
+    addr: 1.1.1.1:443
+    timeout: 10s
+    sni: cloudflare-dns.com
+    insecure: false
+
+acl:
+  inline:
+    - reject(geoip:cn)
+
+masquerade:
+  type: proxy
+  proxy:
+    url: https://github.com/
+    rewriteHost: true
+  listenHTTP: :80
+  listenHTTPS: :443
+  forceHTTPS: true
+
+```
+
+
+
+
 # sing-box macos 客户端 （配置1）
 
 服务器端手工安装hysteria2
