@@ -100,6 +100,87 @@
 
 ```
 
+# sing-box server 配置
+
+```
+
+{
+  "log": {                                           #log部分可以不要，但作为服务器推荐还是保留日志
+    "disabled": false,
+    "level": "error",
+    "output": "./log",
+    "timestamp": true
+  },
+  "inbounds": [                                      #server的inbounds是为客户端提供服务的，接收客户端发送过来的数据
+    {
+      "type": "hysteria2",                           #协议类型为hysteria2
+      "tag": "hy2-in",                               #这个入站的名字
+      "listen": "::",                                #侦听地址
+      "listen_port": 8888,                          #侦听端口
+      "users": [                                     #用户密码
+        {
+          "password": "chenshake"
+        }
+      ],
+      "tls": {                                       #tls配置
+        "enabled": true,
+        "alpn": [
+          "h3"
+        ],
+        "certificate_path": "/etc/hysteria/cert.crt",      #证书
+        "key_path": "/etc/hysteria/private.key"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+  ],
+  "route": {
+    "rules": [
+      {
+        "ip_is_private": true,                        #私网地址block
+        "outbound": "block"
+      },
+      {
+        "rule_set": [
+          "geoip-cn",                                 #目的IP为CN
+          "geosite-category-ads-all"                  #目的网站为广告网站
+        ],
+        "outbound": "block"                           #阻塞
+      }
+    ],
+    "rule_set": [                                     #规则集
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "direct"
+      }
+    ],
+    "final": "direct"                                  #未匹配的规则默认以direct转发流量
+  }
+}
+
+
+
+```
+
+
 # sing-box macos 客户端 （配置2）
 
 服务器端：sing-box 运行 hysteria2
