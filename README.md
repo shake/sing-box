@@ -1,6 +1,5 @@
-# 服务器端推荐配置
+### 自己签发证书，
 
-使用自己签发证书，
 
 ```
 openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout /etc/hysteria/private.key -out /etc/hysteria/cert.crt -subj "/CN=bing.com" -days 36500 && sudo chown hysteria /etc/hysteria/private.key && sudo chown hysteria /etc/hysteria/cert.crt
@@ -64,7 +63,7 @@ masquerade:
   forceHTTPS: true
 
 ```
-
+</details> 
 
 
 
