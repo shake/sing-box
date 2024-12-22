@@ -16,7 +16,7 @@ openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout 
 
 # 服务器端和mac客户端安装和配置
 
-<details><summary>服务器端hysteria 配置</summary>
+<details><summary>服务器端hysteria2 配置</summary>
 
 安装
 
@@ -81,7 +81,7 @@ masquerade:
 </details> 
 
 
-<details><summary>sing-box macos hysteria 2客户端配置</summary>
+<details><summary>sing-box macos 客户端 hysteria 2配置</summary>
 
 
 服务器端手工安装hysteria2
