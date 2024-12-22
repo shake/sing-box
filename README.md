@@ -170,7 +170,8 @@ masquerade:
 ```
 </details> 
 
-# sing-box server 配置
+
+<details><summary>sing-box server 配置</summary>
 
 ```
 
@@ -249,9 +250,11 @@ masquerade:
 
 
 ```
+</details> 
 
 
-# sing-box macos 客户端 （配置2）
+
+<details><summary>ing-box macos 客户端  配置</summary>
 
 服务器端：sing-box 运行 hysteria2
 
@@ -381,5 +384,5 @@ masquerade:
 
 ```
 
-
+</details> 
 
