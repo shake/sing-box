@@ -13,6 +13,7 @@ openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout 
 ```
 证书存放位置：/etc/hysteria/。 hysteria2单独安装，还是通过sing-box server支持hysteria2协议，都是使用该证书。
 
+## 服务器端和mac客户端的配置
 
 <details><summary>服务器端hysteria 配置</summary>
 
