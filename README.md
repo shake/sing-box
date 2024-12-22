@@ -14,7 +14,7 @@ Sing-box和传统的软件client端，server端不太一样，一个安装包，
 openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout /etc/hysteria/private.key -out /etc/hysteria/cert.crt -subj "/CN=bing.com" -days 36500 && sudo chown hysteria /etc/hysteria/private.key && sudo chown hysteria /etc/hysteria/cert.crt
 ```
 
-# 服务器端和mac客户端的配置
+# 服务器端和mac客户端安装和配置
 
 <details><summary>服务器端hysteria 配置</summary>
 
@@ -187,6 +187,13 @@ masquerade:
 
 
 <details><summary>Sing-box server hysteria2 配置</summary>
+
+Sing-box server端安装
+
+```
+bash <(curl -fsSL https://sing-box.app/deb-install.sh)
+
+```
 
 ```
 
