@@ -18,6 +18,12 @@ openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout 
 
 <details><summary>服务器端hysteria 配置</summary>
 
+安装
+
+```
+bash <(curl -fsSL https://get.hy2.sh/)
+```
+
 修改 /etc/hysteria/config.yaml 配置文件
 
 ```
