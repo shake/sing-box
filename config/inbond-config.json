@@ -1,0 +1,10 @@
+  "inbounds": [
+    {
+      "type": "tun",
+      "address": [
+        "172.20.0.1/30"
+      ],
+      "auto_route": true,
+      "sniff": true
+    }
+  ],
