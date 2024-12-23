@@ -23,6 +23,13 @@
         "server": "block"
       },
       {
+        "domain_suffix": [
+          "openart.ai",
+          "prompthero.com"
+        ],
+        "server": "google"
+      },
+      {
         "rule_set": [
           "geosite-gfw"
         ],
@@ -52,7 +59,7 @@
       "type": "hysteria2",                                            
       "tag": "site",                                                  
       "server": "chenshake.com",                                       
-      "server_port": 443,                                           
+      "server_port": 88,                                           
       "password": "chenshake",                                      
       "tls": {                                                        
         "enabled": true,
@@ -75,6 +82,13 @@
         "protocol": "dns",
         "outbound": "dns-out"
       }, 
+      {
+        "domain_suffix": [
+          "openart.ai",
+          "prompthero.com"
+        ],
+        "outbound": "site"
+      },
       {
         "rule_set": [
           "geoip-cn"
@@ -119,4 +133,3 @@
     "auto_detect_interface": true
   }
 }
-
