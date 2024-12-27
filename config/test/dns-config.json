@@ -14,7 +14,7 @@
         "detour": "direct"
       },
       {
-        "tag": "block-dns",
+        "tag": "block",
         "address": "rcode://success"
       }
     ],
