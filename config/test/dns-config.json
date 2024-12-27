@@ -1,0 +1,55 @@
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "address": "tls://dns.google",
+        "address_resolver": "alidns",
+        "strategy": "ipv4_only",
+        "client_subnet": "1.0.1.0"
+        "detour": "site"
+      },
+      {
+        "tag": "alidns",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      },
+      {
+        "tag": "block-dns",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "alidns"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "server": "block"
+      },
+      {
+        "domain_suffix": [
+          "openart.ai",
+          "prompthero.com"
+        ],
+        "server": "google"
+      },
+      {
+        "rule_set": [
+          "geosite-gfw"
+        ],
+        "server": "google"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-!cn"
+        ],
+        "server": "google"
+      }
+    ],
+    "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "final": "google"
+  },
