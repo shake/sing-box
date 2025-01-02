@@ -15,7 +15,8 @@
                 "alpn": [
                     "h3"
                 ],
-                "certificate_path": "/etc/hysteria/cert.pem",
+                "certificate_path": "/etc/hysteria/cert.pem", // mkdir -p /etc/hysteria && openssl ecparam -genkey -name prime256v1 -out /etc/hysteria/private.key && openssl req -new -x509 -days 3650 -key /etc/hysteria/private.key -out /etc/hysteria/cert.pem -subj "/CN=bing.com"
+
                 "key_path": "/etc/hysteria/private.key"
             }
         },
