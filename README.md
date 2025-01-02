@@ -13,6 +13,7 @@ Sing-box和传统的软件client端，server端不太一样，一个安装包，
 ## 服务器端
 
 <details><summary>服务器端hysteria2和reality 配置</summary>
+
 ```
 {
     "inbounds": [
@@ -68,6 +69,7 @@ Sing-box和传统的软件client端，server端不太一样，一个安装包，
         }
     ]
 }
+
 ```
 </details> 
 
