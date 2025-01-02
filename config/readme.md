@@ -29,7 +29,7 @@ systemctl status sing-box
 journalctl -u sing-box -o cat -f
 ```
 
-# 准备证书
+### 准备证书
 
 - 自签证书申请，这里申请的是bing.com，申请了10年
   
@@ -48,7 +48,7 @@ Reality 使用私钥
 sing-box generate reality-keypair
 ```
 
-# /etc/sing-box/config.json
+### /etc/sing-box/config.json
 
 参考上面的服务器端端配置文件就可以。
 
