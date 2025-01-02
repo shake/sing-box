@@ -1,0 +1,141 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "address": "tls://dns.google",
+        "address_resolver": "alidns",
+        "detour": "site"
+      },
+      {
+        "tag": "alidns",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": "geosite-category-ads-all",
+        "server": "block"
+      },
+      {
+        "rule_set": [
+          "geosite-gfw"
+        ],
+        "server": "google"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-!cn"
+        ],
+        "server": "google"
+      }
+    ],
+    "final": "alidns",
+    "disable_cache": true,
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "address": [
+        "172.20.0.1/30"
+      ],
+      "auto_route": true,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {                                                                 
+      "type": "hysteria2",                                            
+      "tag": "site",                                                  
+      "server": "rack.chenshake.com",                                       
+      "server_port": 8444,                                           
+      "password": "chenshake",                                      
+      "tls": {                                                        
+        "enabled": true,
+        "server_name": "bing.com", 
+        "insecure": true                                             
+      }                                                               
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      }, 
+      {
+        "rule_set": [
+          "geoip-cn"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geosite-gfw"
+        ],
+        "outbound": "site"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-!cn"
+        ],
+        "outbound": "site"
+      },
+      {
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "block"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+        "download_detour": "site"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "download_detour": "site"
+      },
+      {                                                                                            
+        "tag": "geosite-gfw",                                                          
+        "type": "remote",                                                                          
+        "format": "binary",                                                                                 
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/gfw.srs",
+        "download_detour": "site"                                                                         
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ads-all.srs",
+        "download_detour": "site"
+      }
+      
+    ],
+    "final": "direct",
+    "auto_detect_interface": true
+  }
+}
