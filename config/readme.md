@@ -1,4 +1,4 @@
-目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）。
+目前伪装最好的两种协议，一个代表tcp协议（reality）的目前巅峰，一个新型UDP协议（hysteria2）。sing-box 支持两种协议，但是并不是所有功能都支持，hysteria2端口跳跃功能是不支持的。如果你希望使用这个功能，那么就只能独立部署hysteria2。
 
 # 服务器端安装sing-box
 
