@@ -5,6 +5,77 @@ Sing-box和传统的软件client端，server端不太一样，一个安装包，
 * Sing-box，作为一个客户端，如果希望使用和支持hysteria2协议，并不要求服务器端必须是Sing-box，服务器端可以是独立安装的hysteria2，也可以是Sing-box上启用hysteria2协议。
 * Sing-box 支持多种的协议，仅仅用hysteria2举例。reality协议，也是类似。
 
+# 多协议
+
+服务器端sing-box 运行hysteria2 和Reality 和客户端的配置文件。
+
+
+## 服务器端
+
+<details><summary>服务器端hysteria2和reality 配置</summary>
+```
+{
+    "inbounds": [
+        {
+            "type": "hysteria2",
+            "listen": "::",
+            "listen_port": 8444,
+            "users": [
+                {
+                    "password": "chenshake" 
+                }
+            ],
+            "masquerade": "https://bing.com",
+            "tls": {
+                "enabled": true,
+                "alpn": [
+                    "h3"
+                ],
+                "certificate_path": "/etc/hysteria/cert.pem",
+                "key_path": "/etc/hysteria/private.key"
+            }
+        },
+        {
+            "type": "vless",
+            "listen": "::",
+            "listen_port": 8445,
+            "users": [
+                {
+                    "uuid": "52d8b1cc-e333-4b76-a7a4-9fd16e8b", // vps上执行 sing-box generate uuid
+                    "flow": "xtls-rprx-vision"
+                }
+            ],
+            "tls": {
+                "enabled": true,
+                "server_name": "www.tesla.com",
+                "reality": {
+                    "enabled": true,
+                    "handshake": {
+                        "server": "www.tesla.com",
+                        "server_port": 443
+                    },
+                    "private_key": "0HcmI26kHsVTwUTmgRx06QgilKkV2vBkAmO02Gw", // vps上执行 sing-box generate reality-keypair
+                    "short_id": [
+                        "0123456789abcdef" // 0到f，长度为2的倍数，长度上限为16，默认这个也可以
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct"
+        }
+    ]
+}
+```
+</details> 
+
+
+
+
+
+
 # 自己签发证书
 
 证书存放位置：/etc/hysteria/。 hysteria2单独安装，还是通过sing-box server支持hysteria2协议，都是使用该证书。
