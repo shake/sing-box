@@ -49,23 +49,24 @@
       "sniff": true
     }
   ],
+    {
   "outbounds": [
     {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {                                                                 
-      "type": "hysteria2",                                            
-      "tag": "site",                                                  
+      "type": "hysteria2",
+      "tag": "site",    
       "server": "rack.chenshake.com",                                       
       "server_port": 8444,                                           
-      "password": "chenshake",                                      
-      "tls": {                                                        
+      "password": "chenshake",      
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "tls": {
         "enabled": true,
-        "server_name": "bing.com", 
-        "insecure": true                                             
-      }                                                               
-    },
+        "server_name": "bing.com",
+        "insecure": true
+      }
+    }
+  ]
+}
     {
       "type": "block",
       "tag": "block"
