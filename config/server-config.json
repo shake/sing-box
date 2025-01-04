@@ -24,9 +24,11 @@
 	  "tag": "hy2-in",
 	  "listen": "::",
 	  "listen_port": 8444,
+	  "up_mbps": 100,
+  	  "down_mbps": 100,
 	  "obfs": {
 	    "type": "salamander",
-	    "password": "cry_me_a_r1ver"
+	    "password": "your_password"
 	  },
 	  "users": [
 	    {
