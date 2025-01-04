@@ -24,6 +24,7 @@
 	  "tag": "hy2-in",
 	  "listen": "::",
 	  "listen_port": 8444,
+	   "alpn": ["h3"],
 	  "up_mbps": 100,
   	  "down_mbps": 100,
 	  "obfs": {
