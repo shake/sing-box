@@ -42,7 +42,7 @@
                     },
                     "private_key": "0HcmI26kHsVTwUTmgRx06QgilKkV2mO0CeKo2Gw", // vps上执行 sing-box generate reality-keypair
                     "short_id": [
-                        "0123456789abcdef" // 0到f，长度为2的倍数，长度上限为16，默认这个也可以
+                        "0123456789abcdef" // 0到f，长度为2的倍数，长度上限为16，默认这个也可以, 如果需要唯一，可以使用：openssl rand -hex 8
                     ]
                 }
             }
