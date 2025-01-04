@@ -7,7 +7,7 @@
 	  "listen_port": 8443,
 	  "users": [
 	    {
-	      "uuid": "059032A9-7D40-4A96-9BB1-36823D848068",
+	      "uuid": "059032A9-7D40-4A96-9BB1-36823D848068", // vps上执行 sing-box generate uuid
 	      "password": "your_password"
 	    }
 	  ],
@@ -30,7 +30,7 @@
 	  },
 	  "users": [
 	    {
-	      "password": "goofy_ahh_password"
+	      "password": "your_password"
 	    }
 	  ],
 	  "masquerade": "https://bing.com",
