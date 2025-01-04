@@ -54,11 +54,15 @@
     {
       "type": "hysteria2",
       "tag": "site",    
-      "server": "rack.chenshake.com",                                       
+      "server": "vps ip or domain",                                       
       "server_port": 8444,                                           
-      "password": "chenshake",      
+      "password": "your_password",      
       "up_mbps": 100,
       "down_mbps": 100,
+      "obfs": {
+	    "type": "salamander",
+	    "password": "your_password"
+	  },
       "tls": {
         "enabled": true,
         "server_name": "bing.com",
