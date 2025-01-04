@@ -60,7 +60,6 @@
         "server": "vps ip or domain name",                                       
         "server_port": 8444,                                           
         "password": "your_password", 
-        "alpn": ["h3"],
         "up_mbps": 100,
   	    "down_mbps": 100,
         "obfs": {
@@ -69,6 +68,7 @@
           },                                     
         "tls": {                                                        
           "enabled": true,
+           "alpn": ["h3"],
           "server_name": "bing.com", 
           "insecure": true                                             
         }                                                               
