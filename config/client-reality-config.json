@@ -57,12 +57,11 @@
     {
       "type": "vless",
       "tag": "site",
-      "server": "rack.chenshake.com",
+      "server": "VPS IP or domain",
       "server_port": 8445,
       "uuid": "52d8b1cc-e333-4b76-a7a4-93f6e8b",
       "flow": "xtls-rprx-vision",
       "network": "tcp",
-      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "server_name": "www.tesla.com",
@@ -72,8 +71,8 @@
         },
         "reality": {
           "enabled": true,
-          "public_key": "KPiGHOQ8Pm3ibvqNZProCccLkJPGaaXagLicSyc",
-          "short_id": "0123456789abcdef"
+          "public_key": "KPiGHOQ8Pm3ibvqNZProCccLkJPGaaXagLicSyc",  //客户端使用公钥
+          "short_id": "0123456789abcdef" //服务器端相同
         }
       }
     },
