@@ -42,9 +42,13 @@
   "inbounds": [
     {
       "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
       "address": [
-        "172.20.0.1/30"
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
       ],
+      "mtu": 9000,
       "auto_route": true,
       "sniff": true
     }
