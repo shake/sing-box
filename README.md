@@ -1,5 +1,7 @@
 # 介绍
 
+https://www.jamesflare.com/vless-tcp-reality-xtls-utls-xudp/
+
 Sing-box和传统的软件client端，server端不太一样，一个安装包，设置不同的参数，就可以是客户端，服务器端。
 
 * Sing-box，作为一个客户端，如果希望使用和支持hysteria2协议，并不要求服务器端必须是Sing-box，服务器端可以是独立安装的hysteria2，也可以是Sing-box上启用hysteria2协议。
