@@ -37,7 +37,7 @@
     ],
     "final": "alidns",
     "disable_cache": true,
-    "strategy": "ipv4_only"
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
@@ -49,28 +49,24 @@
       "sniff": true
     }
   ],
-    {
   "outbounds": [
     {
-      "type": "hysteria2",
-      "tag": "site",    
-      "server": "vps ip or domain",                                       
+      "type": "direct",
+      "tag": "direct"
+    },
+    {                                                                 
+      "type": "hysteria2",                                            
+      "tag": "site",                                                  
+      "server": "rack.chenshake.com",                                       
       "server_port": 8444,                                           
-      "password": "your_password",      
-      "up_mbps": 100,
-      "down_mbps": 100,
-      "obfs": {
-	    "type": "salamander",
-	    "password": "your_password"
-	  },
-      "tls": {
+      "password": "chenshake0611",                                      
+      "tls": {                                                        
         "enabled": true,
-        "server_name": "bing.com",
-        "insecure": true
-      }
-    }
-  ]
-}
+        "server_name": "github.com", 
+        "insecure": true                                             
+      }                                                               
+    },
+
     {
       "type": "block",
       "tag": "block"
@@ -86,6 +82,16 @@
         "protocol": "dns",
         "outbound": "dns-out"
       }, 
+      {
+        "domain_suffix": [
+          "openart.ai",
+          "hysteria.network",
+		"openai.com",
+		"chatgpt.com",
+          "prompthero.com"
+        ],
+        "outbound": "site"
+      },
       {
         "rule_set": [
           "geoip-cn"
