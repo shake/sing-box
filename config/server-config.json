@@ -2,13 +2,14 @@
     "inbounds": [
         {
             "type": "hysteria2",
+	     "tag": "hysteria-in",
             "listen": "::",
             "listen_port": 8444,
             "up_mbps": 500,
 	    "down_mbps": 500,
             "users": [
                 {
-                    "password": "chenshake" 
+                    "password": "PassW0rd" 
                 }
             ],
             "masquerade": "https://bing.com",
@@ -50,6 +51,7 @@
     "outbounds": [
         {
             "type": "direct"
+	    "tag": "direct-out",
         }
     ]
 }
